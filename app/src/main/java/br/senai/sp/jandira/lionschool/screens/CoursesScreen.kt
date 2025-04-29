@@ -12,27 +12,23 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Divider
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import br.senai.sp.jandira.lionschool.R
-import androidx.compose.material3.Text
-import androidx.compose.material3.*
+import br.senai.sp.jandira.lionschool.screens.components.coursesCards
 
 
 @Composable
@@ -45,12 +41,12 @@ fun CoursesScreen(modifier: NavHostController?) {
     ){
         Column (
             modifier = Modifier
-                .fillMaxSize()
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Row (
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color.Red),
+                    .fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ){
                 Image(
@@ -101,6 +97,47 @@ fun CoursesScreen(modifier: NavHostController?) {
                             .height(20.dp)
                     )
                 }
+            )
+            Row (
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 20.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ){
+                Image(
+                    modifier = Modifier
+                        .size(36.dp),
+                    painter = painterResource(
+                        R.drawable.lista_logo,
+                    ),
+                    contentDescription = ""
+                )
+                Text(
+                    text = "Courses",
+                    fontSize = 24.sp,
+
+                )
+            }
+            coursesCards(
+                logo = painterResource(R.drawable.ds_course),
+                sigla = "DS",
+                nome = "Desenvolvimento de Sistemas",
+                descricao = "Learn to develop web and mobile applications.",
+                semestres = 3
+            )
+            coursesCards(
+                logo = painterResource(R.drawable.rds_course),
+                sigla = "RDS",
+                nome = "Redes de Computadores",
+                descricao = "Learn to design communication networks.",
+                semestres = 3
+            )
+            coursesCards(
+                logo = painterResource(R.drawable.ele_course),
+                sigla = "ELE",
+                nome = "Eletroeletrônica",
+                descricao = "Learn to design communication networks.",
+                semestres = 3
             )
         }
     }
